@@ -2,6 +2,8 @@
 
 Personal portfolio site for Luo Jiangyong, built with Hugo and hosted on GitHub Pages.
 
+Production domain: https://luojiangyong.com/
+
 ## What It Contains
 
 - Bilingual routes: `/ch/` and `/en/`
