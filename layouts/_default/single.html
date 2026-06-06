@@ -1,0 +1,27 @@
+{{ define "main" }}
+<article class="content-page">
+  <p class="eyebrow">{{ .Params.type }}</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.summary }}<p class="lead">{{ . }}</p>{{ end }}
+  {{ if eq .Params.type "skill" }}
+    <div class="product-card" style="margin: 32px 0;">
+      <h3>{{ if eq .Site.Language.Lang "ch" }}平台数据{{ else }}Platform data{{ end }}</h3>
+      <div class="platforms">
+        {{ with .Params.platforms.skillhub }}
+          <a class="platform" href="{{ .url }}">
+            <span>Skillhub</span>
+            <strong>{{ default "--" .downloads }}</strong>
+          </a>
+        {{ end }}
+        {{ with .Params.platforms.clawhub }}
+          <a class="platform" href="{{ .url }}">
+            <span>Clawhub</span>
+            <strong>{{ default "--" .downloads }}</strong>
+          </a>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+  {{ .Content }}
+</article>
+{{ end }}

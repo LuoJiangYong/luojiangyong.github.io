@@ -1,0 +1,19 @@
+<article class="skill-card">
+  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+  <div class="platforms">
+    {{ with .Params.platforms.skillhub }}
+      <a class="platform" href="{{ .url }}">
+        <span>Skillhub downloads</span>
+        <strong>{{ default "--" .downloads }}</strong>
+      </a>
+    {{ end }}
+    {{ with .Params.platforms.clawhub }}
+      <a class="platform" href="{{ .url }}">
+        <span>Clawhub downloads</span>
+        <strong>{{ default "--" .downloads }}</strong>
+      </a>
+    {{ end }}
+  </div>
+  <a class="card-link" href="{{ .RelPermalink }}">{{ if eq .Site.Language.Lang "ch" }}查看 Skill{{ else }}View Skill{{ end }}</a>
+</article>

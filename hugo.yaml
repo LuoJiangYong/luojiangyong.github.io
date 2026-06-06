@@ -1,0 +1,69 @@
+baseURL: "https://luojiangyong.github.io/"
+title: "Luo Jiangyong"
+defaultContentLanguage: ch
+defaultContentLanguageInSubdir: true
+enableRobotsTXT: true
+disableKinds: ["taxonomy", "term"]
+
+languages:
+  ch:
+    locale: zh-CN
+    label: 中文
+    contentDir: content/ch
+    weight: 1
+    title: "Luo Jiangyong"
+    params:
+      locale: ch
+      description: "AI 工具、自动化和产品案例作品集。"
+  en:
+    locale: en-US
+    label: English
+    contentDir: content/en
+    weight: 2
+    title: "Luo Jiangyong"
+    params:
+      locale: en
+      description: "A portfolio for AI tools, automation, and product cases."
+
+params:
+  author: "Luo Jiangyong"
+  github: "https://github.com/LuoJiangYong"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+menus:
+  ch:
+    - name: "首页"
+      pageRef: "/"
+      weight: 10
+    - name: "GitHub 项目"
+      pageRef: "/projects"
+      weight: 20
+    - name: "AI Skills"
+      pageRef: "/skills"
+      weight: 30
+    - name: "案例"
+      pageRef: "/cases"
+      weight: 40
+    - name: "Blog"
+      pageRef: "/blog"
+      weight: 50
+  en:
+    - name: "Home"
+      pageRef: "/"
+      weight: 10
+    - name: "GitHub Projects"
+      pageRef: "/projects"
+      weight: 20
+    - name: "AI Skills"
+      pageRef: "/skills"
+      weight: 30
+    - name: "Cases"
+      pageRef: "/cases"
+      weight: 40
+    - name: "Blog"
+      pageRef: "/blog"
+      weight: 50

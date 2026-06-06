@@ -1,0 +1,18 @@
+<header class="site-header">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="{{ relLangURL "" }}">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Luo Jiangyong</span>
+    </a>
+    <div class="nav-links">
+      {{ range index .Site.Menus .Site.Language.Lang }}
+        <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+      {{ end }}
+    </div>
+    <div class="language-switch" aria-label="Language switcher">
+      {{ range .AllTranslations }}
+        <a href="{{ .RelPermalink }}">{{ .Language.Label }}</a>
+      {{ end }}
+    </div>
+  </nav>
+</header>

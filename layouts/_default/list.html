@@ -1,0 +1,20 @@
+{{ define "main" }}
+<section class="content-page">
+  <p class="eyebrow">{{ .Params.eyebrow }}</p>
+  <h1>{{ .Title }}</h1>
+  <p class="lead">{{ .Params.summary }}</p>
+</section>
+<section class="section {{ if eq .Section "skills" }}dark{{ else }}soft{{ end }}">
+  <div class="container">
+    <div class="grid {{ if eq .Section "skills" }}two{{ else }}three{{ end }}">
+      {{ range .Pages }}
+        {{ if eq .Section "skills" }}
+          {{ partial "skill-card.html" . }}
+        {{ else }}
+          {{ partial "summary-card.html" . }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

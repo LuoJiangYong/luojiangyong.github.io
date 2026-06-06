@@ -1,0 +1,130 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">{{ .Params.eyebrow }}</p>
+      <h1>{{ .Title }}</h1>
+      <p class="lead">{{ .Params.summary }}</p>
+      <div class="button-row">
+        <a class="button primary" href="{{ relLangURL "skills/" }}">{{ .Params.primary_cta }}</a>
+        <a class="button secondary" href="{{ relLangURL "projects/" }}">{{ .Params.secondary_cta }}</a>
+      </div>
+      <div class="social-block">
+        <p>{{ .Params.social_title }}</p>
+        <div class="social-list">
+          {{ range .Params.social_links }}
+            <span><strong>{{ .platform }}</strong>{{ .name }}</span>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    <div class="portrait-card">
+      {{ with .Params.photo }}
+        <img class="portrait-image" src="{{ . }}" alt="{{ $.Params.photo_alt }}">
+      {{ else }}
+        <div class="portrait-placeholder">
+          <span>{{ $.Params.photo_label }}</span>
+        </div>
+      {{ end }}
+      <p>{{ .Params.photo_note }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">{{ .Params.traits_eyebrow }}</p>
+        <h2>{{ .Params.traits_title }}</h2>
+      </div>
+      <p class="section-intro">{{ .Params.traits_intro }}</p>
+    </div>
+    <div class="grid four">
+      {{ range .Params.traits }}
+        <article class="card trait-card">
+          <h3>{{ .title }}</h3>
+          <p>{{ .body }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">{{ .Params.timeline_eyebrow }}</p>
+        <h2>{{ .Params.timeline_title }}</h2>
+      </div>
+      <p class="section-intro">{{ .Params.timeline_intro }}</p>
+    </div>
+    <div class="timeline-list">
+      {{ range .Params.timeline }}
+        <article class="timeline-item">
+          <div>
+            <span class="timeline-period">{{ .period }}</span>
+            <p>{{ .summary }}</p>
+          </div>
+          <div>
+            <h3>{{ .title }}</h3>
+            <p>{{ .body }}</p>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">{{ .Params.projects_eyebrow }}</p>
+        <h2>{{ .Params.projects_title }}</h2>
+      </div>
+      <p class="section-intro">{{ .Params.projects_intro }}</p>
+    </div>
+    <div class="grid two">
+      {{ range first 2 (where .Site.RegularPages "Section" "projects") }}
+        {{ partial "summary-card.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">{{ .Params.skills_eyebrow }}</p>
+        <h2>{{ .Params.skills_title }}</h2>
+      </div>
+      <p class="section-intro">{{ .Params.skills_intro }}</p>
+    </div>
+    <div class="grid two">
+      {{ range first 4 (where .Site.RegularPages "Section" "skills") }}
+        {{ partial "skill-card.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">{{ .Params.blog_eyebrow }}</p>
+        <h2>{{ .Params.blog_title }}</h2>
+      </div>
+      <p class="section-intro">{{ .Params.blog_intro }}</p>
+    </div>
+    <div class="grid three">
+      {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+        {{ partial "summary-card.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,10 @@
+<article class="card">
+  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+  <a class="card-link" href="{{ .RelPermalink }}">{{ if eq .Site.Language.Lang "ch" }}查看详情{{ else }}Read more{{ end }}</a>
+  {{ with .Params.tags }}
+    <div class="badge-row">
+      {{ range . }}<span class="badge">{{ . }}</span>{{ end }}
+    </div>
+  {{ end }}
+</article>
